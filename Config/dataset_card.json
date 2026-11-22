@@ -1,0 +1,59 @@
+{
+  "name": "Credit Dataset",
+  "industry": "credit_lending",
+  "industry_source": "explicit (--industry / config)",
+  "model_type": "TABULAR_ML",
+  "task": "classification",
+  "source_url": "https://www.google.com/url?sa=i&source=web&rct=j&url=https://www.openml.org/d/31&ved=2ahUKEwj9yebhjJmYAxUTkuEIHZ4CM4oQy_kOegYIAggKEAI&opi=89978449&cd&psig=AOvVaw23jJPxIOwPbnxxaLnvo9yO&ust=1795351796372000",
+  "license": "CC-BY-4.0",
+  "collection_method": "Yes (Supervised Binary Classification). The dataset is fully labelled with the target column class, which categorizes loan applicants into two credit risk classes: good (low risk / creditworthy) and bad (high risk / likely to default)",
+  "known_limitations": "\u2022 Class Imbalance & Asymmetric Cost: The dataset has a 70:30 class imbalance (700 good vs. 300 bad credit records). In real-world banking, misclassifying a bad customer as good (False Negative) is 5 times costlier than the reverse, so standard accuracy alone is misleading. \u2022 Small Sample Size: With only 1,000 instances and 20 features (which expand to ~60+ columns after one-hot encoding), complex models are prone to overfitting without cross-validation. \u2022 Historical & Currency Obsolescence: Collected in 1994 in Germany, monetary attributes like credit_amount are measured in Deutsche Marks (DM), making financial thresholds outdated for modern banking. \u2022 Sensitive / Demographic Attributes: Features such as personal_status (gender and marital status), age, and foreign_worker introduce demographic bias and fairness/compliance concerns if used directly in production lending models.",
+  "complete": true,
+  "missing_fields": [],
+  "defaulted_fields": [],
+  "field_sources": {
+    "source_url": "cli",
+    "license": "cli",
+    "collection_method": "cli",
+    "known_limitations": "cli"
+  },
+  "needs_owner_confirmation": false,
+  "metadata_file": null,
+  "n_rows_used": 1000,
+  "n_test_rows": 201,
+  "class_distribution": {
+    "bad": 300,
+    "good": 700
+  },
+  "dropped_columns": {
+    "credit_history": "protected attribute dropped by DROP_SENSITIVE_FEATURES",
+    "age": "protected attribute dropped by DROP_SENSITIVE_FEATURES",
+    "num_dependents": "protected attribute dropped by DROP_SENSITIVE_FEATURES",
+    "own_telephone": "protected attribute dropped by DROP_SENSITIVE_FEATURES"
+  },
+  "audit_findings": [
+    "the test split has only 201 rows: accuracy 0.751 has a 95% interval of [0.687, 0.806] -- treat differences inside it as noise (more data, or repeated / cross-validated evaluation, before comparing models).",
+    "protected attribute column(s) ['age', 'credit_history', 'num_dependents', 'own_telephone'] were dropped before training (DROP_SENSITIVE_FEATURES) -- no fairness audit was run for them."
+  ],
+  "sensitive_features": [],
+  "sensitive_reviewed": {},
+  "sensitive_scan": {},
+  "sensitive_review_source": {},
+  "business_justified": {},
+  "sensitive_features_dropped": [
+    "age",
+    "credit_history",
+    "num_dependents",
+    "own_telephone"
+  ],
+  "fairness_disparity": [],
+  "fairness_check_status": "NOT_APPLICABLE",
+  "fairness_review_pending": [],
+  "dropped_columns_category": {
+    "credit_history": "protected_class",
+    "age": "protected_class",
+    "num_dependents": "protected_class",
+    "own_telephone": "protected_class"
+  },
+  "unspecified_fields": []
+}

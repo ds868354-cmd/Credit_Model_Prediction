@@ -1,0 +1,40 @@
+description: 'Generated for THIS dataset by Final_universal_automl_pipeline fixed-161
+  (column names only, no values). Not read automatically: rename it to domain_config.yaml
+  to reuse it; the `dataset:` block makes a run on a different dataset ignore it.
+  Findings: domain_config_report.json.'
+dataset:
+  n_columns: 23
+  columns_sha256: 7460da408daf25fe45e3100938c5c026c56f9ebf20b00b275014aee186612414
+  columns:
+  - age
+  - checking_status
+  - class
+  - credit_amount
+  - credit_amount__log1p
+  - credit_history
+  - duration
+  - duration__log1p
+  - employment
+  - existing_credits
+  - existing_credits__log1p
+  - foreign_worker
+  - housing
+  - installment_commitment
+  - job
+  - num_dependents
+  - other_parties
+  - other_payment_plans
+  - own_telephone
+  - personal_status
+  - property_magnitude
+  - residence_since
+  - savings_status
+domain:
+  industry: credit_lending
+  auto_drop_sensitive: true
+  keep_sensitive_columns: []
+  extra_sensitive_columns:
+  - age
+  - credit_history
+  - num_dependents
+  - own_telephone

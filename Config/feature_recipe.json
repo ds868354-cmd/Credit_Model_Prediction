@@ -1,0 +1,463 @@
+{
+  "target_col": "class",
+  "task": "classification",
+  "model_family": "TABULAR_ML",
+  "numeric_cols": [
+    "duration",
+    "credit_amount",
+    "installment_commitment",
+    "residence_since",
+    "existing_credits",
+    "credit_amount__log1p",
+    "duration__log1p",
+    "existing_credits__log1p"
+  ],
+  "categorical_cols": [
+    "checking_status",
+    "savings_status",
+    "employment",
+    "personal_status",
+    "other_parties",
+    "property_magnitude",
+    "other_payment_plans",
+    "housing",
+    "job",
+    "foreign_worker"
+  ],
+  "feature_names": [
+    "duration",
+    "credit_amount",
+    "installment_commitment",
+    "residence_since",
+    "existing_credits",
+    "credit_amount__log1p",
+    "duration__log1p",
+    "existing_credits__log1p",
+    "checking_status=0<=X<200",
+    "checking_status=<0",
+    "checking_status=>=200",
+    "checking_status=no checking",
+    "savings_status=100<=X<500",
+    "savings_status=500<=X<1000",
+    "savings_status=<100",
+    "savings_status=>=1000",
+    "savings_status=no known savings",
+    "employment=1<=X<4",
+    "employment=4<=X<7",
+    "employment=<1",
+    "employment=>=7",
+    "employment=unemployed",
+    "personal_status=female div/dep/mar",
+    "personal_status=male div/sep",
+    "personal_status=male mar/wid",
+    "personal_status=male single",
+    "other_parties=co applicant",
+    "other_parties=guarantor",
+    "other_parties=none",
+    "property_magnitude=car",
+    "property_magnitude=life insurance",
+    "property_magnitude=no known property",
+    "property_magnitude=real estate",
+    "other_payment_plans=bank",
+    "other_payment_plans=none",
+    "other_payment_plans=stores",
+    "housing=for free",
+    "housing=own",
+    "housing=rent",
+    "job=high qualif/self emp/mgmt",
+    "job=skilled",
+    "job=unemp/unskilled non res",
+    "job=unskilled resident",
+    "foreign_worker=no",
+    "foreign_worker=yes"
+  ],
+  "class_names": [
+    "bad",
+    "good"
+  ],
+  "impute_medians": [
+    18.0,
+    2250.0,
+    3.0,
+    3.0,
+    1.0,
+    7.719129742229024,
+    2.9444389791664403,
+    0.6931471805599453
+  ],
+  "outlier_bounds": [
+    {
+      "lower": 4.0,
+      "upper": 64.21200000000135
+    },
+    {
+      "lower": 250.0,
+      "upper": 16815.12900000028
+    },
+    {
+      "lower": 1.0,
+      "upper": 4.0
+    },
+    {
+      "lower": 1.0,
+      "upper": 4.0
+    },
+    {
+      "lower": 1.0,
+      "upper": 5.0
+    },
+    {
+      "lower": 5.5254529391317835,
+      "upper": 11.589264796483036
+    },
+    {
+      "lower": 1.6094379124341003,
+      "upper": 5.180655227088192
+    },
+    {
+      "lower": 0.6931471805599453,
+      "upper": 2.315007612992603
+    }
+  ],
+  "scale_recipe": {
+    "method": "standard",
+    "mean_": [
+      20.968018461538463,
+      3240.474044615385,
+      2.983076923076923,
+      2.816923076923077,
+      1.4184615384615384,
+      7.773869634181456,
+      2.9420011748902533,
+      0.858353155978268
+    ],
+    "scale_": [
+      12.186916825449687,
+      2843.0820319612944,
+      1.1251077528936066,
+      1.1143910694281918,
+      0.5686400261060959,
+      0.7805686786993744,
+      0.5503791246425097,
+      0.21695109512745608
+    ]
+  },
+  "encode_recipe": {
+    "categorical_cols": [
+      "checking_status",
+      "savings_status",
+      "employment",
+      "personal_status",
+      "other_parties",
+      "property_magnitude",
+      "other_payment_plans",
+      "housing",
+      "job",
+      "foreign_worker"
+    ],
+    "encoders": {
+      "onehot_categories": [
+        [
+          "0<=X<200",
+          "<0",
+          ">=200",
+          "no checking"
+        ],
+        [
+          "100<=X<500",
+          "500<=X<1000",
+          "<100",
+          ">=1000",
+          "no known savings"
+        ],
+        [
+          "1<=X<4",
+          "4<=X<7",
+          "<1",
+          ">=7",
+          "unemployed"
+        ],
+        [
+          "female div/dep/mar",
+          "male div/sep",
+          "male mar/wid",
+          "male single"
+        ],
+        [
+          "co applicant",
+          "guarantor",
+          "none"
+        ],
+        [
+          "car",
+          "life insurance",
+          "no known property",
+          "real estate"
+        ],
+        [
+          "bank",
+          "none",
+          "stores"
+        ],
+        [
+          "for free",
+          "own",
+          "rent"
+        ],
+        [
+          "high qualif/self emp/mgmt",
+          "skilled",
+          "unemp/unskilled non res",
+          "unskilled resident"
+        ],
+        [
+          "no",
+          "yes"
+        ]
+      ],
+      "onehot_columns": [
+        "checking_status",
+        "savings_status",
+        "employment",
+        "personal_status",
+        "other_parties",
+        "property_magnitude",
+        "other_payment_plans",
+        "housing",
+        "job",
+        "foreign_worker"
+      ]
+    }
+  },
+  "custom_formulas": null,
+  "smote_applied": false,
+  "applied_pipeline_steps": [
+    {
+      "step": "FeatureExpansion",
+      "params": {
+        "derived_columns": [
+          "credit_amount__log1p",
+          "duration__log1p",
+          "existing_credits__log1p"
+        ],
+        "onehot_columns": [
+          "checking_status",
+          "savings_status",
+          "employment",
+          "personal_status",
+          "other_parties",
+          "property_magnitude",
+          "other_payment_plans",
+          "housing",
+          "job",
+          "foreign_worker"
+        ]
+      }
+    },
+    {
+      "step": "Imputation",
+      "params": {
+        "method": "median",
+        "columns": [
+          "duration",
+          "credit_amount",
+          "installment_commitment",
+          "residence_since",
+          "existing_credits",
+          "credit_amount__log1p",
+          "duration__log1p",
+          "existing_credits__log1p"
+        ],
+        "medians": [
+          18.0,
+          2250.0,
+          3.0,
+          3.0,
+          1.0,
+          7.719129742229024,
+          2.9444389791664403,
+          0.6931471805599453
+        ]
+      }
+    },
+    {
+      "step": "WinsorizeCaps",
+      "params": {
+        "factor": 3.0,
+        "bounds": [
+          {
+            "lower": 4.0,
+            "upper": 64.21200000000135
+          },
+          {
+            "lower": 250.0,
+            "upper": 16815.12900000028
+          },
+          {
+            "lower": 1.0,
+            "upper": 4.0
+          },
+          {
+            "lower": 1.0,
+            "upper": 4.0
+          },
+          {
+            "lower": 1.0,
+            "upper": 5.0
+          },
+          {
+            "lower": 5.5254529391317835,
+            "upper": 11.589264796483036
+          },
+          {
+            "lower": 1.6094379124341003,
+            "upper": 5.180655227088192
+          },
+          {
+            "lower": 0.6931471805599453,
+            "upper": 2.315007612992603
+          }
+        ]
+      }
+    },
+    {
+      "step": "Scaling",
+      "params": {
+        "method": "standard"
+      }
+    },
+    {
+      "step": "OneHotCategorical",
+      "params": {
+        "columns": [
+          "checking_status",
+          "savings_status",
+          "employment",
+          "personal_status",
+          "other_parties",
+          "property_magnitude",
+          "other_payment_plans",
+          "housing",
+          "job",
+          "foreign_worker"
+        ]
+      }
+    }
+  ],
+  "derived_features": [
+    {
+      "type": "log1p",
+      "source": "credit_amount",
+      "out": "credit_amount__log1p"
+    },
+    {
+      "type": "log1p",
+      "source": "duration",
+      "out": "duration__log1p"
+    },
+    {
+      "type": "log1p",
+      "source": "existing_credits",
+      "out": "existing_credits__log1p"
+    }
+  ],
+  "feature_expansion_report": {
+    "numeric": [
+      {
+        "col": "duration",
+        "variance": 149.650369,
+        "skew": 1.127432,
+        "min": 4.0,
+        "n_unique": 32,
+        "abs_corr": 0.19425,
+        "log1p_candidate": true,
+        "high_impact": true
+      },
+      {
+        "col": "credit_amount",
+        "variance": 8154291.165115,
+        "skew": 2.003408,
+        "min": 250.0,
+        "n_unique": 614,
+        "abs_corr": 0.085765,
+        "log1p_candidate": true,
+        "high_impact": true
+      },
+      {
+        "col": "installment_commitment",
+        "variance": 1.265867,
+        "skew": -0.550063,
+        "min": 1.0,
+        "n_unique": 4,
+        "abs_corr": 0.042788,
+        "log1p_candidate": false,
+        "high_impact": false
+      },
+      {
+        "col": "residence_since",
+        "variance": 1.241867,
+        "skew": -0.24197,
+        "min": 1.0,
+        "n_unique": 4,
+        "abs_corr": 0.007846,
+        "log1p_candidate": false,
+        "high_impact": false
+      },
+      {
+        "col": "existing_credits",
+        "variance": 0.323351,
+        "skew": 1.125501,
+        "min": 1.0,
+        "n_unique": 4,
+        "abs_corr": 0.093473,
+        "log1p_candidate": true,
+        "high_impact": true
+      }
+    ],
+    "log1p_columns": [
+      "credit_amount",
+      "duration",
+      "existing_credits"
+    ],
+    "high_impact_numeric": [
+      "duration",
+      "existing_credits",
+      "credit_amount"
+    ],
+    "ordinal_columns": [],
+    "target_encoded_columns": [],
+    "frequency_encoded_columns": [],
+    "onehot_columns": [
+      "checking_status",
+      "savings_status",
+      "employment",
+      "personal_status",
+      "other_parties",
+      "property_magnitude",
+      "other_payment_plans",
+      "housing",
+      "job",
+      "foreign_worker"
+    ],
+    "skipped_columns": []
+  },
+  "robust_objective": {
+    "enabled": true,
+    "task": "classification",
+    "imbalance_ratio": 2.3333,
+    "objective": "cross_entropy_class_weight_balanced"
+  },
+  "ingestion_mode_context": "json_array",
+  "log_transform_target": false,
+  "log_target_pad_frac": 0.0,
+  "weighted_least_squares": {
+    "applied": false,
+    "reason": "not a regression task or weighted_least_squares=False"
+  },
+  "decision_threshold": {
+    "threshold": 0.5,
+    "positive_index": 1,
+    "positive_class": 1,
+    "source": "tabular_ml_settings.decision_threshold"
+  }
+}

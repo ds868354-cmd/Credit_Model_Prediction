@@ -1,0 +1,223 @@
+{
+  "generated_utc": "2026-11-21T12:55:58Z",
+  "model_type": "TABULAR_ML",
+  "domain_config": {
+    "path": "/content/domain_config.yaml",
+    "sha256": "b72d4e5cd8602375b85a1431a2473a0be5adc4d3b3378ca3f28defabbbcd7405",
+    "domains": [
+      "healthcare",
+      "finance",
+      "real_estate",
+      "hr",
+      "credit_lending"
+    ],
+    "warnings": []
+  },
+  "drop_sensitive_features": {
+    "value": true,
+    "source": "domain_config (/content/domain_config.yaml)"
+  },
+  "industry": {
+    "mode": "explicit",
+    "detected": {
+      "industry": "credit_lending",
+      "confident": true,
+      "applied": "credit_lending",
+      "source": "user selection (fixed-160)"
+    },
+    "active_domains": [
+      "healthcare",
+      "finance",
+      "real_estate",
+      "hr",
+      "credit_lending"
+    ],
+    "auto_drop_sensitive": true
+  },
+  "dropped_detail": [
+    {
+      "column": "credit_history",
+      "categories": [
+        "financial_sensitive"
+      ],
+      "domains": [
+        "finance",
+        "credit_lending"
+      ],
+      "matches": [
+        "credit history",
+        "credit_history"
+      ],
+      "sources": [
+        "regex",
+        "registry"
+      ]
+    },
+    {
+      "column": "age",
+      "categories": [
+        "protected_class"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "age"
+      ],
+      "sources": [
+        "regex"
+      ]
+    },
+    {
+      "column": "own_telephone",
+      "categories": [
+        "direct_identifier"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "telephone"
+      ],
+      "sources": [
+        "regex"
+      ]
+    },
+    {
+      "column": "credit_history",
+      "categories": [
+        "financial_sensitive"
+      ],
+      "domains": [
+        "finance",
+        "credit_lending"
+      ],
+      "matches": [
+        "credit history",
+        "credit_history"
+      ],
+      "sources": [
+        "regex",
+        "registry"
+      ]
+    },
+    {
+      "column": "age",
+      "categories": [
+        "protected_class"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "age"
+      ],
+      "sources": [
+        "regex"
+      ]
+    },
+    {
+      "column": "num_dependents",
+      "categories": [
+        "familial_proxy"
+      ],
+      "domains": [
+        "real_estate"
+      ],
+      "matches": [
+        "num dependents"
+      ],
+      "sources": [
+        "regex"
+      ]
+    },
+    {
+      "column": "own_telephone",
+      "categories": [
+        "direct_identifier"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "telephone"
+      ],
+      "sources": [
+        "regex"
+      ]
+    }
+  ],
+  "retained_by_keep_sensitive_columns": [],
+  "domain_config_routing": {
+    "model_type": "TABULAR_ML",
+    "mode": "full",
+    "applied": true,
+    "note": null
+  },
+  "dropped_before_training": {
+    "credit_history": {
+      "categories": [
+        "financial_sensitive"
+      ],
+      "domains": [
+        "finance",
+        "credit_lending"
+      ],
+      "matches": [
+        "credit history",
+        "credit_history"
+      ],
+      "sources": [
+        "regex",
+        "registry"
+      ]
+    },
+    "age": {
+      "categories": [
+        "protected_class"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "age"
+      ],
+      "sources": [
+        "regex"
+      ]
+    },
+    "num_dependents": {
+      "categories": [
+        "familial_proxy"
+      ],
+      "domains": [
+        "real_estate"
+      ],
+      "matches": [
+        "num dependents"
+      ],
+      "sources": [
+        "regex"
+      ]
+    },
+    "own_telephone": {
+      "categories": [
+        "direct_identifier"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "telephone"
+      ],
+      "sources": [
+        "regex"
+      ]
+    }
+  },
+  "sensitive_columns_in_model": {},
+  "status": {},
+  "business_justified": {},
+  "fairness_reviews": {},
+  "fairness_disparity": []
+}

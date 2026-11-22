@@ -1,0 +1,43 @@
+{
+  "model": {
+    "type": "TABULAR_ML",
+    "task": "classification",
+    "target_col": "class"
+  },
+  "industry": {
+    "applied": "credit_lending",
+    "confidence": null,
+    "detected": true,
+    "evidence": [],
+    "active_domains": [
+      "healthcare",
+      "finance",
+      "real_estate",
+      "hr",
+      "credit_lending"
+    ]
+  },
+  "sensitive_columns_found": {
+    "age": [
+      "protected_class"
+    ],
+    "credit_history": [
+      "financial_sensitive"
+    ],
+    "num_dependents": [
+      "familial_proxy"
+    ],
+    "own_telephone": [
+      "direct_identifier"
+    ]
+  },
+  "sensitive_columns_dropped": [
+    "age",
+    "credit_history",
+    "num_dependents",
+    "own_telephone"
+  ],
+  "target_bounds": null,
+  "language": null,
+  "applied_domain_config_file": "/content/domain_config.yaml"
+}
